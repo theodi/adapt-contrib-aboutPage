@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "http://jsonschema.net",
+    "required": false,
+    "properties" : {
+        "pluginLocations" : {
+            "type" : "object",
+            "required" : true,
+            "properties" : {
+                "config" : {
+                    "type" : "object",
+                    "properties" : {
+                        "_aboutPage" : {
+                            "type" : "object",
+                            "required" : false,
+                            "legend" : "About Page",
+                            "properties" : {
+                                "_items" : {
+                                    "type" : "array",
+                                    "required" : true,
+                                    "title" : "Items",
+                                    "items" : {
+                                        "type" : "object",
+                                        "required" : true,
+                                        "properties" : {
+                                            "title" : {
+                                                "type" : "string",
+                                                "inputType" : "Text",
+                                                "title" : "Title",
+                                                "default" : "",
+                                                "validators" : [],
+                                                "help" : "A title",
+                                                "translatable" : true
+                                            },
+                                            "description" : {
+                                                "type" : "string",
+                                                "inputType" : "TextArea",
+                                                "title" : "Description",
+                                                "default" : "",
+                                                "validators" : [],
+                                                "help" : "Longer description",
+                                                "translatable" : true
+                                            },
+                                            "_graphic": {
+                                                "type": "object",
+                                                "required": false,
+                                                "title": "Graphic",
+                                                "properties":{
+                                                    "alt": {
+                                                        "type": "string",
+                                                        "required": false,
+                                                        "default": "",
+                                                        "inputType": "Text",
+                                                        "validators": [],
+                                                        "help": "The alternative text for this image",
+                                                        "translatable": true
+                                                    },
+                                                    "src": {
+                                                        "type": "string",
+                                                        "required": false,
+                                                        "default": "",
+                                                        "inputType": "Asset:image",
+                                                        "validators": [],
+                                                        "help": "Optional image which will be rendered with the item body text"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
