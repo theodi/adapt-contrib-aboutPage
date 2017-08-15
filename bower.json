@@ -6,6 +6,7 @@
   "issues": "",
   "displayName" : "Simple about page (in Tutor)",
   "extension" : "aboutPage",
+  "targetAttribute" : "_aboutPage",
   "description": "Create a simple about page for your whole course. You can add a number of items that contain text, pictures and links.",
   "main": "/js/adapt-contrib-aboutPage.js",
   "keywords": [
