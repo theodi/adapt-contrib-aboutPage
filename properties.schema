@@ -10,7 +10,16 @@
             "title" : "Link text",
             "default" : "About",
             "validators" : [ ],
-            "help" : "The text which appears as the link in the theme to show the about page.",
+            "help" : "The text which appears as the link to the about popup in the theme footer.",
+            "translatable" : true
+        },
+        "aboutTitleText" : {
+            "type" : "string",
+            "inputType" : "Text",
+            "title" : "Title text",
+            "default" : "About",
+            "validators" : [ ],
+            "help" : "The text which appears as the title of the about popup.",
             "translatable" : true
         }
   },

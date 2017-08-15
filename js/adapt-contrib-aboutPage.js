@@ -38,7 +38,10 @@ define([
 
     showAboutPage: function() {
     	items = Adapt.course.get('_aboutPage')._items;
-	    console.log(items);
+        title = "About";
+        try {
+            title = Adapt.course.get('_globals')._extensions._aboutPage.aboutTitleText;
+        } catch(err) {}
     	string = "";
     	count = 1;
  	_.each(items, function(item) {
@@ -53,7 +56,7 @@ define([
  		string += "<hr class='aboutPageRule'/>";
     	});
 	var alertObject = {
-            title: "About",
+            title: title,
             body: string
         };
         Adapt.once("notify:closed", function() {
