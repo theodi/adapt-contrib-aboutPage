@@ -19,8 +19,18 @@ define([
     },
 
     addLink: function() {
-        title = Adapt.course.get('_globals')._extensions._aboutPage.aboutLinkText;
-        if( $('.about-links').size() > 0) {
+        title = "About";
+        try {
+            title = Adapt.course.get('_globals')._extensions._aboutPage.aboutLinkText;
+        } catch(err) {
+            
+        }
+        try { 
+            items = Adapt.course.get('_aboutPage')._items; 
+        } catch(err) {
+            return;
+        }
+        if( $('.about-links').prop('innerHTML').trim().length > 0) {
             $('.about-links').append(' | ');
         } 
         $('.about-links').append('<a class="about" onClick=\'callAboutPageTrigger();\'>'+title+'</a>');
