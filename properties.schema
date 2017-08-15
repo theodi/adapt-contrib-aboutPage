@@ -3,12 +3,23 @@
     "$schema": "http://json-schema.org/draft-04/schema",
     "id": "http://jsonschema.net",
     "required": false,
+    "globals": {
+        "aboutLinkText" : {
+            "type" : "string",
+            "inputType" : "Text",
+            "title" : "Link text",
+            "default" : "About",
+            "validators" : [ ],
+            "help" : "The text which appears as the link in the theme to show the about page.",
+            "translatable" : true
+        }
+    },
     "properties" : {
         "pluginLocations" : {
             "type" : "object",
             "required" : true,
             "properties" : {
-                "config" : {
+                "course" : {
                     "type" : "object",
                     "properties" : {
                         "_aboutPage" : {

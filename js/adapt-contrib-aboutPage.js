@@ -7,6 +7,7 @@ define([
     initialize: function() {
     	this.listenTo(Adapt, 'aboutPage:showAboutPage', this.showAboutPage);
     	this.listenTo(Adapt, 'router:course', this.updateCourse);
+        this.listenTo(Adapt, 'pageView:ready', this.addLink);
     },
 
     updateCourse: function(target) {
@@ -17,9 +18,17 @@ define([
     	return this.currentCourse;
     },
 
+    addLink: function() {
+        title = Adapt.course.get('_globals')._extensions._aboutPage.aboutLinkText;
+        if( $('.about-links').size() > 0) {
+            $('.about-links').append(' | ');
+        } 
+        $('.about-links').append('<a class="about" onClick=\'callAboutPageTrigger();\'>'+title+'</a>');
+    },
+
     showAboutPage: function() {
-    	items = Adapt.config.get('_aboutPage')._items;
-	console.log(items);
+    	items = Adapt.course.get('_aboutPage')._items;
+	    console.log(items);
     	string = "";
     	count = 1;
  	_.each(items, function(item) {
@@ -53,3 +62,8 @@ define([
 
   return (aboutPage);
 });
+
+function callAboutPageTrigger() {
+    var Adapt = require('coreJS/adapt');
+    Adapt.trigger('aboutPage:showAboutPage');
+}
