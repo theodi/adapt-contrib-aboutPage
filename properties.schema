@@ -4,7 +4,7 @@
     "id": "http://jsonschema.net",
     "required": false,
     "globals": {
-        "aboutLinkText" : {
+        "linkText" : {
             "type" : "string",
             "inputType" : "Text",
             "title" : "Link text",
@@ -13,7 +13,7 @@
             "help" : "The text which appears as the link to the about popup in the theme footer.",
             "translatable" : true
         },
-        "aboutTitleText" : {
+        "titleText" : {
             "type" : "string",
             "inputType" : "Text",
             "title" : "Title text",
@@ -22,8 +22,8 @@
             "help" : "The text which appears as the title of the about popup.",
             "translatable" : true
         }
-  },
-  "properties" : {
+    },
+   "properties" : {
     "pluginLocations" : {
         "type" : "object",
         "required" : true,
