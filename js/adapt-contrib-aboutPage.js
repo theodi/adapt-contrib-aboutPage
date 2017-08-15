@@ -21,7 +21,7 @@ define([
     addLink: function() {
         title = "About";
         try {
-            title = Adapt.course.get('_globals')._extensions._aboutPage.aboutLinkText;
+            title = Adapt.course.get('_globals')._extensions._aboutPage.linkText;
         } catch(err) {
             
         }
@@ -40,7 +40,7 @@ define([
     	items = Adapt.course.get('_aboutPage')._items;
         title = "About";
         try {
-            title = Adapt.course.get('_globals')._extensions._aboutPage.aboutTitleText;
+            title = Adapt.course.get('_globals')._extensions._aboutPage.titleText;
         } catch(err) {}
     	string = "";
     	count = 1;

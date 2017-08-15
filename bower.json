@@ -12,6 +12,5 @@
     "adapt-plugin",
     "adapt-extension"
   ],
-  "license": "GPLv3",
-  "targetAttribute": "_aboutPage"
+  "license": "GPLv3"
 }
