@@ -8,10 +8,15 @@ define([
     	this.listenTo(Adapt, 'aboutPage:showAboutPage', this.showAboutPage);
     	this.listenTo(Adapt, 'router:course', this.updateCourse);
         this.listenTo(Adapt, 'pageView:ready', this.addLink);
+        this.listenTo(Adapt, 'router:page', this.updatePage);
     },
 
     updateCourse: function(target) {
     	this.currentCourse = target;
+    },
+
+    updatePage: function(target) {
+        this.contentObject = target;
     },
 
     getCourse: function() {
@@ -23,7 +28,6 @@ define([
         try {
             title = Adapt.course.get('_globals')._extensions._aboutPage.linkText;
         } catch(err) {
-            
         }
         try { 
             items = Adapt.course.get('_aboutPage')._items; 
@@ -34,6 +38,12 @@ define([
             $('.about-links').append(' | ');
         } 
         $('.about-links').append('<a class="about" onClick=\'callAboutPageTrigger();\'>'+title+'</a>');
+        try {
+            aboutcredit = this.contentObject.get('_aboutPage').aboutCredit;
+            if (aboutcredit != "") {
+                $('.about-credit').html(aboutcredit);
+            }
+        } catch(err) {}
     },
 
     showAboutPage: function() {
