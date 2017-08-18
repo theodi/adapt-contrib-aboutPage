@@ -26,7 +26,7 @@
           "type" : "string",
           "inputType" : "TextArea",
           "title" : "Credit (in footer)",
-          "default" : "Developed for <a href='//data.gov.ua' target='_blank'>data.gov.ua</a> by the <a href='https://theodi.org/' target='_blank'>Open Data Institute</a>",
+          "default" : "Developed by the <a href='https://theodi.org/' target='_blank'>Open Data Institute</a>",
           "help" : "The text which appears at the direct credit on each page.",
           "translatable" : true
       },
