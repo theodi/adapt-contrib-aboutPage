@@ -19,6 +19,10 @@ define([
         this.contentObject = target;
     },
 
+    getPage: function() {
+        return this.contentObject;
+    },
+
     getCourse: function() {
     	return this.currentCourse;
     },
@@ -47,7 +51,13 @@ define([
     },
 
     showAboutPage: function() {
-    	items = Adapt.course.get('_aboutPage')._items;
+        items = [];
+        try {
+            items = this.contentObject.get('_aboutPage')._items;
+        } catch(err) {}
+        if (items.length < 1) {
+            items = Adapt.course.get('_aboutPage')._items;
+        }
         title = "About";
         try {
             title = Adapt.course.get('_globals')._extensions._aboutPage.titleText;

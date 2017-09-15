@@ -131,6 +131,59 @@
                                 "title" : "Credit (in footer)",
                                 "help" : "The text which appears at the direct credit on each page.",
                                 "translatable" : true
+                            },
+                            "_items" : {
+                                "type" : "array",
+                                "required" : true,
+                                "title" : "Items",
+                                "items" : {
+                                    "type" : "object",
+                                    "required" : true,
+                                    "properties" : {
+                                        "title" : {
+                                            "type" : "string",
+                                            "inputType" : "Text",
+                                            "title" : "Title",
+                                            "default" : "",
+                                            "validators" : [],
+                                            "help" : "A title",
+                                            "translatable" : true
+                                        },
+                                        "description" : {
+                                            "type" : "string",
+                                            "inputType" : "TextArea",
+                                            "title" : "Description",
+                                            "default" : "",
+                                            "validators" : [],
+                                            "help" : "Longer description",
+                                            "translatable" : true
+                                        },
+                                        "_graphic": {
+                                            "type": "object",
+                                            "required": false,
+                                            "title": "Graphic",
+                                            "properties":{
+                                                "alt": {
+                                                    "type": "string",
+                                                    "required": false,
+                                                    "default": "",
+                                                    "inputType": "Text",
+                                                    "validators": [],
+                                                    "help": "The alternative text for this image",
+                                                    "translatable": true
+                                                },
+                                                "src": {
+                                                    "type": "string",
+                                                    "required": false,
+                                                    "default": "",
+                                                    "inputType": "Asset:image",
+                                                    "validators": [],
+                                                    "help": "Optional image which will be rendered with the item body text"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
