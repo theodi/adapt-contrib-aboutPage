@@ -22,14 +22,6 @@
             "help" : "The text which appears as the title of the about popup.",
             "translatable" : true
         },
-        "aboutCredit": {
-          "type" : "string",
-          "inputType" : "TextArea",
-          "title" : "Credit (in footer)",
-          "default" : "Developed by the <a href='https://theodi.org/' target='_blank'>Open Data Institute</a>",
-          "help" : "The text which appears at the direct credit on each page.",
-          "translatable" : true
-      },
       "contactEMail": {
           "type" : "string",
           "inputType" : "Text",
@@ -45,68 +37,149 @@
           "default" : "Contact",
           "help" : "The link text which is shown against the email address.",
           "translatable" : true
+      },
+      "aboutCredit": {
+          "type" : "string",
+          "inputType" : "TextArea",
+          "title" : "Licensing attribution in footer",
+          "default" : "",
+          "help" : "The text which appears at the direct attribution on each page.",
+          "translatable" : true
+      },
+      "SL_text": {
+          "type" : "string",
+          "inputType" : "TextArea",
+          "title" : "Social link text",
+          "default" : "",
+          "help" : "Text to display in place of social link icons.",
+          "translatable" : false
+      },
+      "SL_facebook": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Facebook account",
+          "default" : "",
+          "help" : "Facebook account to show in social links (no @).",
+          "translatable" : false
+      },
+      "SL_flickr": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Flickr account",
+          "default" : "",
+          "help" : "Flickr account to show in social links (no @).",
+          "translatable" : false
+      },
+      "SL_github": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Github account",
+          "default" : "",
+          "help" : "Github account to show in social links (no @).",
+          "translatable" : false
+      },
+      "SL_scribd": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Scribd account",
+          "default" : "",
+          "help" : "Scribd account to show in social links (no @).",
+          "translatable" : false
+      },
+      "SL_soundcloud": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "SoundCloud account",
+          "default" : "",
+          "help" : "SoundCloud account to show in social links (no @).",
+          "translatable" : false
+      },
+      "SL_twitter": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Twitter account",
+          "default" : "",
+          "help" : "Twitter account to show in social links (no @).",
+          "translatable" : false
+      },
+      "SL_vimeo": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Vimeo account",
+          "default" : "",
+          "help" : "Vimeo account to show in social links (no @).",
+          "translatable" : false
+      },
+      "SL_youtube": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Youtube account",
+          "default" : "",
+          "help" : "Youtube account to show in social links (no @).",
+          "translatable" : false
       }
     },
-   "properties" : {
-    "pluginLocations" : {
-        "type" : "object",
-        "required" : true,
-        "properties" : {
-            "course" : {
-                "type" : "object",
-                "properties" : {
-                    "_aboutPage" : {
-                        "type" : "object",
-                        "required" : false,
-                        "legend" : "About Page",
-                        "properties" : {
-                            "_items" : {
-                                "type" : "array",
-                                "required" : true,
-                                "title" : "Items",
-                                "items" : {
-                                    "type" : "object",
+    "properties" : {
+        "pluginLocations" : {
+            "type" : "object",
+            "required" : true,
+            "properties" : {
+                "course" : {
+                    "type" : "object",
+                    "properties" : {
+                        "_aboutPage" : {
+                            "type" : "object",
+                            "required" : false,
+                            "legend" : "About Page",
+                            "properties" : {
+                                "_items" : {
+                                    "type" : "array",
                                     "required" : true,
-                                    "properties" : {
-                                        "title" : {
-                                            "type" : "string",
-                                            "inputType" : "Text",
-                                            "title" : "Title",
-                                            "default" : "",
-                                            "validators" : [],
-                                            "help" : "A title",
-                                            "translatable" : true
-                                        },
-                                        "description" : {
-                                            "type" : "string",
-                                            "inputType" : "TextArea",
-                                            "title" : "Description",
-                                            "default" : "",
-                                            "validators" : [],
-                                            "help" : "Longer description",
-                                            "translatable" : true
-                                        },
-                                        "_graphic": {
-                                            "type": "object",
-                                            "required": false,
-                                            "title": "Graphic",
-                                            "properties":{
-                                                "alt": {
-                                                    "type": "string",
-                                                    "required": false,
-                                                    "default": "",
-                                                    "inputType": "Text",
-                                                    "validators": [],
-                                                    "help": "The alternative text for this image",
-                                                    "translatable": true
-                                                },
-                                                "src": {
-                                                    "type": "string",
-                                                    "required": false,
-                                                    "default": "",
-                                                    "inputType": "Asset:image",
-                                                    "validators": [],
-                                                    "help": "Optional image which will be rendered with the item body text"
+                                    "title" : "Items",
+                                    "items" : {
+                                        "type" : "object",
+                                        "required" : true,
+                                        "properties" : {
+                                            "title" : {
+                                                "type" : "string",
+                                                "inputType" : "Text",
+                                                "title" : "Title",
+                                                "default" : "",
+                                                "validators" : [],
+                                                "help" : "A title",
+                                                "translatable" : true
+                                            },
+                                            "description" : {
+                                                "type" : "string",
+                                                "inputType" : "TextArea",
+                                                "title" : "Description",
+                                                "default" : "",
+                                                "validators" : [],
+                                                "help" : "Longer description",
+                                                "translatable" : true
+                                            },
+                                            "_graphic": {
+                                                "type": "object",
+                                                "required": false,
+                                                "title": "Graphic",
+                                                "properties":{
+                                                    "alt": {
+                                                        "type": "string",
+                                                        "required": false,
+                                                        "default": "",
+                                                        "inputType": "Text",
+                                                        "validators": [],
+                                                        "help": "The alternative text for this image",
+                                                        "translatable": true
+                                                    },
+                                                    "src": {
+                                                        "type": "string",
+                                                        "required": false,
+                                                        "default": "",
+                                                        "inputType": "Asset:image",
+                                                        "validators": [],
+                                                        "help": "Optional image which will be rendered with the item body text"
+                                                    }
                                                 }
                                             }
                                         }
@@ -115,70 +188,79 @@
                             }
                         }
                     }
-                }
-            },
-            "contentobject" : {
-                "type" : "object",
-                "properties" : {
-                    "_aboutPage" : {
-                        "type" : "object",
-                        "required" : false,
-                        "legend" : "About Page",
-                        "properties" : {
-                            "aboutCredit": {
-                                "type" : "string",
-                                "inputType" : "TextArea",
-                                "title" : "Credit (in footer)",
-                                "help" : "The text which appears at the direct credit on each page.",
-                                "translatable" : true
-                            },
-                            "_items" : {
-                                "type" : "array",
-                                "required" : true,
-                                "title" : "Items",
-                                "items" : {
-                                    "type" : "object",
+                },
+                "contentobject" : {
+                    "type" : "object",
+                    "properties" : {
+                        "_aboutPage" : {
+                            "type" : "object",
+                            "required" : false,
+                            "legend" : "About Page",
+                            "properties" : {
+                                "aboutCredit": {
+                                    "type" : "string",
+                                    "inputType" : "TextArea",
+                                    "title" : "Licensing attribution in footer",
+                                    "default" : "",
+                                    "help" : "The text which appears at the direct attribution on each page.",
+                                    "translatable" : true
+                                },
+                                "SL_text": {
+                                  "type" : "string",
+                                  "inputType" : "TextArea",
+                                  "title" : "Social link text",
+                                  "default" : "",
+                                  "help" : "Text to display in place of social link icons.",
+                                  "translatable" : false
+                                },
+                                "_items" : {
+                                    "type" : "array",
                                     "required" : true,
-                                    "properties" : {
-                                        "title" : {
-                                            "type" : "string",
-                                            "inputType" : "Text",
-                                            "title" : "Title",
-                                            "default" : "",
-                                            "validators" : [],
-                                            "help" : "A title",
-                                            "translatable" : true
-                                        },
-                                        "description" : {
-                                            "type" : "string",
-                                            "inputType" : "TextArea",
-                                            "title" : "Description",
-                                            "default" : "",
-                                            "validators" : [],
-                                            "help" : "Longer description",
-                                            "translatable" : true
-                                        },
-                                        "_graphic": {
-                                            "type": "object",
-                                            "required": false,
-                                            "title": "Graphic",
-                                            "properties":{
-                                                "alt": {
-                                                    "type": "string",
-                                                    "required": false,
-                                                    "default": "",
-                                                    "inputType": "Text",
-                                                    "validators": [],
-                                                    "help": "The alternative text for this image",
-                                                    "translatable": true
-                                                },
-                                                "src": {
-                                                    "type": "string",
-                                                    "required": false,
-                                                    "default": "",
-                                                    "inputType": "Asset:image",
-                                                    "validators": [],
-                                                    "help": "Optional image which will be rendered with the item body text"
+                                    "title" : "Items",
+                                    "items" : {
+                                        "type" : "object",
+                                        "required" : true,
+                                        "properties" : {
+                                            "title" : {
+                                                "type" : "string",
+                                                "inputType" : "Text",
+                                                "title" : "Title",
+                                                "default" : "",
+                                                "validators" : [],
+                                                "help" : "A title",
+                                                "translatable" : true
+                                            },
+                                            "description" : {
+                                                "type" : "string",
+                                                "inputType" : "TextArea",
+                                                "title" : "Description",
+                                                "default" : "",
+                                                "validators" : [],
+                                                "help" : "Longer description",
+                                                "translatable" : true
+                                            },
+                                            "_graphic": {
+                                                "type": "object",
+                                                "required": false,
+                                                "title": "Graphic",
+                                                "properties":{
+                                                    "alt": {
+                                                        "type": "string",
+                                                        "required": false,
+                                                        "default": "",
+                                                        "inputType": "Text",
+                                                        "validators": [],
+                                                        "help": "The alternative text for this image",
+                                                        "translatable": true
+                                                    },
+                                                    "src": {
+                                                        "type": "string",
+                                                        "required": false,
+                                                        "default": "",
+                                                        "inputType": "Asset:image",
+                                                        "validators": [],
+                                                        "help": "Optional image which will be rendered with the item body text"
+                                                    }
                                                 }
                                             }
                                         }
@@ -191,5 +273,4 @@
             }
         }
     }
-}
 }

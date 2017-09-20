@@ -48,6 +48,12 @@ define([
                 $('.about-credit').html(aboutcredit);
             }
         } catch(err) {}
+        try {
+            aboutSLtext = this.contentObject.get('_aboutPage').SL_text;
+            if (aboutSLtext != "") {
+                $('#about-SL-text').html(aboutSLtext);
+            }
+        } catch(err) {}
     },
 
     showAboutPage: function() {
