@@ -8,6 +8,7 @@ define([
     	this.listenTo(Adapt, 'aboutPage:showAboutPage', this.showAboutPage);
     	this.listenTo(Adapt, 'router:course', this.updateCourse);
         this.listenTo(Adapt, 'pageView:ready', this.addLink);
+        this.listenTo(Adapt, 'menuView:ready', this.addLink);
         this.listenTo(Adapt, 'router:page', this.updatePage);
     },
 
