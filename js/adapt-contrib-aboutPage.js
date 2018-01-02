@@ -39,10 +39,12 @@ define([
         } catch(err) {
             return;
         }
-        if( $('.about-links').prop('innerHTML').trim().length > 0) {
-            $('.about-links').append(' | ');
-        } 
-        $('.about-links').append('<a class="about" onClick=\'callAboutPageTrigger();\'>'+title+'</a>');
+	try {
+        	if( $('.about-links').prop('innerHTML').trim().length > 0) {
+            		$('.about-links').append(' | ');
+        	} 
+        	$('.about-links').append('<a class="about" onClick=\'callAboutPageTrigger();\'>'+title+'</a>');
+	} catch(err) {}
         try {
             aboutcredit = this.contentObject.get('_aboutPage').aboutCredit;
             if (aboutcredit != "") {
