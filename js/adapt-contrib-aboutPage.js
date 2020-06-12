@@ -1,5 +1,5 @@
 define([
-  'coreJS/adapt',
+    'core/js/adapt'
 ], function(Adapt) {
 
     var aboutPage = _.extend({
@@ -30,27 +30,46 @@ define([
 
     addLink: function() {
         title = "About";
-        try {
-            title = Adapt.course.get('_globals')._extensions._aboutPage.linkText;
-        } catch(err) {
-        }
+        var contactEmail = "";
+        var contactLinkText = "";
+        
+        try { title = Adapt.course.get('_globals')._extensions._aboutPage.linkText; } catch(err) {}
+        
         try { 
             items = Adapt.course.get('_aboutPage')._items; 
         } catch(err) {
             return;
         }
-	try {
+        try {
         	if( $('.about-links').prop('innerHTML').trim().length > 0) {
             		$('.about-links').append(' | ');
         	} 
         	$('.about-links').append('<a class="about" onClick=\'callAboutPageTrigger();\'>'+title+'</a>');
-	} catch(err) {}
-        try {
+	   } catch(err) {}
+
+       try {
+            contactEmail = Adapt.course.get('_globals')._extensions._aboutPage.contactEMail;
+            contactLinkText = Adapt.course.get('_globals')._extensions._aboutPage.contactLinkText;
+            if (contactLinkText != "" && contactEmail != "") {
+                console.log(contactEmail);
+                console.log(contactLinkText);
+                if( $('.about-links').prop('innerHTML').trim().length > 0) {
+                    $('.about-links').append(' | ');
+                }
+                $('.about-links').append('<a class="contact" href="mailto:'+contactEmail+'" target="_blank">'+contactLinkText+'</a>');
+            }
+       } catch (err) {
+        console.log(err);
+       }
+
+       try {
             aboutcredit = this.contentObject.get('_aboutPage').aboutCredit;
             if (aboutcredit != "") {
                 $('.about-credit').html(aboutcredit);
             }
-        } catch(err) {}
+        } catch(err) {
+        }
+
         try {
             aboutSLtext = this.contentObject.get('_aboutPage').SL_text;
             if (aboutSLtext != "") {
@@ -73,21 +92,22 @@ define([
         } catch(err) {}
     	string = "";
     	count = 1;
- 	_.each(items, function(item) {
-		graphic = item._graphic;
-		if (graphic.src) {
-			string += "<div class='aboutPageGraphicElement'><img class='aboutPageGraphic' src='" + graphic.src + "'/></div>";
-		}
- 		string += "<div class='aboutPageText'>";
-		string += "<h2>" + item.title + "</h2>";
- 		string += "<p>" + item.description + "</p>";
-		string += "</div>";
- 		string += "<hr class='aboutPageRule'/>";
+        _.each(items, function(item) {
+            graphic = item._graphic;
+            if (graphic.src) {
+    			string += "<div class='aboutPageGraphicElement'><img class='aboutPageGraphic' src='" + graphic.src + "'/></div>";
+            }
+            string += "<div class='aboutPageText'>";
+            string += "<h2>" + item.title + "</h2>";
+            string += "<p>" + item.description + "</p>";
+            string += "</div>";
+            string += "<hr class='aboutPageRule'/>";
     	});
-	var alertObject = {
+        var alertObject = {
             title: title,
             body: string
         };
+        
         Adapt.once("notify:closed", function() {
             Adapt.trigger("tutor:closed");
         });
@@ -97,7 +117,6 @@ define([
         Adapt.trigger('tutor:opened');
     }
 
-
   }, Backbone.Events);
   
   aboutPage.initialize();
@@ -106,6 +125,6 @@ define([
 });
 
 function callAboutPageTrigger() {
-    var Adapt = require('coreJS/adapt');
+    var Adapt = require('core/js/adapt');
     Adapt.trigger('aboutPage:showAboutPage');
 }
