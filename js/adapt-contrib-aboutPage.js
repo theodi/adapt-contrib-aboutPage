@@ -1,5 +1,5 @@
 define([
-    'core/js/adapt'
+  'core/js/adapt'
 ], function(Adapt) {
 
     var aboutPage = _.extend({
@@ -29,23 +29,26 @@ define([
     },
 
     addLink: function() {
-        title = "About";
+        var title = "About";
         var contactEmail = "";
         var contactLinkText = "";
         
         try { title = Adapt.course.get('_globals')._extensions._aboutPage.linkText; } catch(err) {}
         
         try { 
-            items = Adapt.course.get('_aboutPage')._items; 
+            var items = Adapt.course.get('_aboutPage')._items; 
         } catch(err) {
             return;
         }
+
         try {
         	if( $('.about-links').prop('innerHTML').trim().length > 0) {
             		$('.about-links').append(' | ');
         	} 
-        	$('.about-links').append('<a class="about" onClick=\'callAboutPageTrigger();\'>'+title+'</a>');
-	   } catch(err) {}
+        	$('.about-links').append('<a class="about" onClick="require(\'core/js/adapt\').trigger(\'aboutPage:showAboutPage\'); return false;">'+title+'</a>');
+	   } catch(err) {
+        
+       }
 
        try {
             contactEmail = Adapt.course.get('_globals')._extensions._aboutPage.contactEMail;
@@ -63,7 +66,7 @@ define([
        }
 
        try {
-            aboutcredit = this.contentObject.get('_aboutPage').aboutCredit;
+            var aboutcredit = this.contentObject.get('_aboutPage').aboutCredit;
             if (aboutcredit != "") {
                 $('.about-credit').html(aboutcredit);
             }
@@ -71,7 +74,7 @@ define([
         }
 
         try {
-            aboutSLtext = this.contentObject.get('_aboutPage').SL_text;
+            var aboutSLtext = this.contentObject.get('_aboutPage').SL_text;
             if (aboutSLtext != "") {
                 $('#about-SL-text').html(aboutSLtext);
             }
@@ -79,21 +82,21 @@ define([
     },
 
     showAboutPage: function() {
-        items = [];
+        var items = [];
         try {
             items = this.contentObject.get('_aboutPage')._items;
         } catch(err) {}
         if (items.length < 1) {
             items = Adapt.course.get('_aboutPage')._items;
         }
-        title = "About";
+        var title = "About";
         try {
             title = Adapt.course.get('_globals')._extensions._aboutPage.titleText;
         } catch(err) {}
-    	string = "";
-    	count = 1;
+    	var string = "";
+    	var count = 1;
         _.each(items, function(item) {
-            graphic = item._graphic;
+            var graphic = item._graphic;
             if (graphic.src) {
     			string += "<div class='aboutPageGraphicElement'><img class='aboutPageGraphic' src='" + graphic.src + "'/></div>";
             }
@@ -123,8 +126,3 @@ define([
 
   return (aboutPage);
 });
-
-function callAboutPageTrigger() {
-    var Adapt = require('core/js/adapt');
-    Adapt.trigger('aboutPage:showAboutPage');
-}
