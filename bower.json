@@ -1,7 +1,7 @@
 {
   "name": "adapt-contrib-aboutPage",
-  "version": "0.3.2",
-  "framework": "^2.0.0",
+  "version": "0.5.1",
+  "framework": ">=5.2",
   "homepage": "https://github.com/theodi/adapt-contrib-aboutPage",
   "issues": "",
   "displayName" : "Simple about page (in Tutor)",
